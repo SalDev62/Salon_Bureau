@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import HomePageDesktop from "@/component/HomePageDesktop";
-import HomePageMobile from "@/component/HomePageMobile";
+import ProductMenuDesktop from "@/component/ProductMenuDesktop";
+import ProductMenuMobile from "@/component/ProductMenuMobile";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,5 +20,5 @@ export default function Home() {
     };
   }, []);
 
-  return <>{isMobile ? <HomePageMobile /> : <HomePageDesktop />}</>;
+  return <>{isMobile ? <ProductMenuMobile /> : <ProductMenuDesktop />}</>;
 }
