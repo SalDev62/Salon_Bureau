@@ -147,7 +147,7 @@ export default function ProductProduitMobile() {
           <input type="tel" name="phone" placeholder="Numéro de téléphone" value={formData.phone} onChange={handleChange} className="w-full p-2 border rounded" />
           <textarea name="message" placeholder="Votre message" value={formData.message} onChange={handleChange} className="w-full p-2 border rounded" />
           
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+          <button type="submit" className="w-full bg-rose text-white p-2 rounded hover:bg-rouge">
             Envoyer
           </button>
         </form>

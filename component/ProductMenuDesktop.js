@@ -104,8 +104,8 @@ export default function ProductMenuDesktop() {
         <ul className="flex flex-wrap gap-4">
           {/* Bouton "Tous" pour réinitialiser la sélection */}
           <li
-            className={`cursor-pointer text-sm font-medium py-2 px-4 border-2 transition-all duration-300 hover:bg-creme
-            ${selectedCategory === null ? "bg-gold text-white" : "bg-gray-100 text-black border-gray-900"}`}
+            className={`cursor-pointer text-sm font-medium py-2 px-4 border-1 transition-all duration-300 hover:bg-rouge hover:text-white hover:border-none
+            ${selectedCategory === null ? "bg-rose text-white" : "bg-white text-black border-gray-900"}`} 
             onClick={() => setSelectedCategory(null)}
           >
             Tous
@@ -114,8 +114,8 @@ export default function ProductMenuDesktop() {
           {menu.map((subCategory) => (
             <li
               key={subCategory.id}
-              className={`cursor-pointer text-sm font-medium py-2 px-4  border-2 transition-all duration-300  hover:bg-creme
-              ${selectedCategory === subCategory.id ? "bg-gold text-white" : "bg-gray-100 text-black border-gray-900"}`}
+              className={`cursor-pointer text-sm font-medium py-2 px-4  border-1 transition-all duration-300  hover:bg-rouge hover:text-white hover:border-none
+              ${selectedCategory === subCategory.id ? "bg-rose text-white" : "bg-white text-black border-gray-900"}`}
               onClick={() => setSelectedCategory(subCategory.id)}
             >
               {subCategory.name}
@@ -127,11 +127,11 @@ export default function ProductMenuDesktop() {
   )}
 
       {/* Affichage des produits filtrés */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-24 gap-x-6 pb-16">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
-            <Link key={product.id} href={`/${slug}/${product.categorieId}/${product.id}`}>
-              <div className=" ">
+            <Link className="hover:scale-105 transition duration-500 relative aspect-w-1 aspect-h-1" key={product.id} href={`/${slug}/${product.categorieId}/${product.id}`}>
+               <div className="">
                 <img src={product.images} className="w-full h-48 object-cover"/>
                 <h3 className="text-lg font-semibold">{product.nom}</h3>
                 <p className="text-sm text-gray-500">Catégorie : {product.categorieName.join(", ")}</p>
