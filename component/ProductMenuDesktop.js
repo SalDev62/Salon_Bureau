@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-
+import ErrorProduit from "./ErrorProduit";
+import SkeletonLoader from "./SkeletonLoader";
 // Fonction pour récupérer les produits par catégorie
 async function fetchProductsByCategory(slug) {
   try {
@@ -82,68 +83,67 @@ export default function ProductMenuDesktop() {
     ? products.filter((product) => product.categorieId.includes(selectedCategory))
     : products;
 
-  if (loading) return <p className="text-gray-500">Chargement...</p>;
+  if (loading) return <SkeletonLoader type="category"/>;
   if (error) return <p className="text-red-500">{error}</p>;
 
+  if (products.length === 0) {
+    return <ErrorProduit message="Aucun produit trouvé pour cette catégorie." linkText="Retour à l'accueil" linkHref="/" />;
+  }
+
   return (
-    <div className="p-6 max-w-[1350]  mx-auto">
-      {products.length > 0 && <h1 className="text-2xl font-bold mb-4">{products[0].menuName}</h1>}
-
-      {/* Affichage des sous-catégories */}
-      {/* Affichage des sous-catégories */}
-<div>
-  {menu.length > 0 ? (
-    <div className="pb-4">
-      <h2 className="text-xl font-semibold mb-2">Filtrer par catégorie</h2>
-      <ul className="flex flex-row space-x-4 space-y-2 flex-wrap">
-        {/* Bouton "Tous" pour réinitialiser la sélection */}
-        <li
-          className={`cursor-pointer text-sm text-gray-700 border rounded-lg p-2 ${
-            selectedCategory === null ? "bg-blue-500 text-white" : ""
-          }`}
-          onClick={() => setSelectedCategory(null)}
-        >
-          Tous
-        </li>
-        
-        {menu.map((subCategory) => (
-          <li
-            key={subCategory.id}
-            className={`cursor-pointer text-sm text-gray-700 border rounded-lg p-2 ${
-              selectedCategory === subCategory.id ? "bg-blue-500 text-white" : ""
-            }`}
-            onClick={() => setSelectedCategory(subCategory.id)}
-          >
-            {subCategory.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  ) : (
-    <p className="text-gray-600">Aucune sous-catégorie trouvée pour ce menu.</p>
+    <div className="p-6 max-w-[1350px] mx-auto">
+  {products.length > 0 && (
+    <h1 className="text-3xl font-semibold mb-6 text-gray-800">{products[0].menuName}</h1>
   )}
-</div>
 
+  {/* Affichage des sous-catégories uniquement si des produits existent */}
+  {products.length > 0 && menu.length > 0 && (
+    <div>
+      <div className="pb-6">
+     
+        <ul className="flex flex-wrap gap-4">
+          {/* Bouton "Tous" pour réinitialiser la sélection */}
+          <li
+            className={`cursor-pointer text-sm font-medium py-2 px-4 border-2 transition-all duration-300 hover:bg-creme
+            ${selectedCategory === null ? "bg-gold text-white" : "bg-gray-100 text-black border-gray-900"}`}
+            onClick={() => setSelectedCategory(null)}
+          >
+            Tous
+          </li>
+
+          {menu.map((subCategory) => (
+            <li
+              key={subCategory.id}
+              className={`cursor-pointer text-sm font-medium py-2 px-4  border-2 transition-all duration-300  hover:bg-creme
+              ${selectedCategory === subCategory.id ? "bg-gold text-white" : "bg-gray-100 text-black border-gray-900"}`}
+              onClick={() => setSelectedCategory(subCategory.id)}
+            >
+              {subCategory.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )}
 
       {/* Affichage des produits filtrés */}
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-  {filteredProducts.length > 0 ? (
-    filteredProducts.map((product) => (
-      <Link key={product.id} href={`/${slug}/${product.categorieId}/${product.id}`}>
-        <div className=" ">
-          
-          <img src={product.images} className="w-full h-48 object-cover"/>
-          <h3 className="text-lg font-semibold">{product.nom}</h3>
-          <p className="text-sm text-gray-500">Catégorie : {product.categorieName.join(", ")}</p>
-          <p className="text-sm text-gray-500">Menu : {product.menuName.join(", ")}</p>
-        </div>
-      </Link>
-    ))
-  ) : (
-    <p className="text-gray-600">Aucun produit trouvé pour cette catégorie.</p>
-  )}
-</div>
-
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <Link key={product.id} href={`/${slug}/${product.categorieId}/${product.id}`}>
+              <div className=" ">
+                <img src={product.images} className="w-full h-48 object-cover"/>
+                <h3 className="text-lg font-semibold">{product.nom}</h3>
+                <p className="text-sm text-gray-500">Catégorie : {product.categorieName.join(", ")}</p>
+                <p className="text-sm text-gray-500">Menu : {product.menuName.join(", ")}</p>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <p>Aucun produit trouvé pour cette catégorie</p>
+        )}
+      </div>
     </div>
   );
 }
+

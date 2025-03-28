@@ -34,7 +34,7 @@ export default function NavBarDesktop() {
         <ul className="flex gap-8">
           {menus.map((menu) => (
             <li key={menu.id} className="relative group">
-              <Link href={`/${menu.id}`} className="text-md font-medium text-black hover:text-red-800 transition-colors">
+              <Link href={`/${menu.id}`} className="text-md font-medium text-black hover:text-rose transition-colors">
                 {menu.nom}
               </Link>
               {menu.categorieName && menu.categorieName.length > 0 && (

@@ -2,6 +2,7 @@
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import ErrorProduit from './ErrorProduit';
 const apiUrl = process.env.NEXT_PUBLIC_FETCH_ALL;
 
 async function fetchProductById(productId) {
@@ -49,7 +50,15 @@ export default function ProductProduitMobile() {
 
   if (loading) return <div>Chargement du produit...</div>;
   if (error) return <div>Erreur: {error}</div>;
-  if (!product) return <div>Produit introuvable</div>;
+    if (!product) {
+      return (
+        <ErrorProduit
+          message="Produit introuvable"
+          linkText="Retour à l'accueil"
+          linkHref="/"
+        />
+      );
+    }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

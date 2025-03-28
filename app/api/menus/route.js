@@ -24,6 +24,7 @@ export async function GET() {
         nom: produit.Nom,
         categorieName: produit.Catégories?.map((cat) => cat.value) || [],
         categorieId: produit.Catégories?.map((cat) => cat.id) || [],
+        image: produit.Pictures?.length > 0 ? produit.Pictures[0].url : null,
       }));
   
       return new Response(JSON.stringify(produits), { status: 200 });

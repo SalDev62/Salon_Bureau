@@ -1,5 +1,44 @@
 @import "tailwindcss";
 
-@theme{
-   --color-black:#3A3A3A
+@font-face {
+   font-family: Mont;
+   src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 }
+
+@theme{
+   --color-black:#000000;
+   --color-blackL:#0F0F0F;
+   --color-gold:#D6C29F;
+   --color-beige:#F1F1E6;
+   --color-creme:#DCD6B1;
+   --color-rose:#F4B6B0;
+   --color-rouge:#D92128;
+}
+
+@theme{
+   --font-Mont: 'Mont', sans-serif;
+}
+
+@keyframes shake {
+   0% {
+     transform: translateX(0);
+   }
+   25% {
+     transform: translateX(-5px);
+   }
+   50% {
+     transform: translateX(5px);
+   }
+   75% {
+     transform: translateX(-5px);
+   }
+   100% {
+     transform: translateX(0);
+   }
+ }
+ 
+ .animate-shake {
+   animation: shake 3s ease-in-out infinite;
+   animation-delay: 1s; /* Délai de 10 secondes avant que le tremblement commence */
+ }
+ 
