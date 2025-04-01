@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ErrorProduit from './ErrorProduit';
 import { RotateCw } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
+
 const apiUrl = process.env.NEXT_PUBLIC_FETCH_ALL;
 
 async function fetchProductById(productId) {
@@ -21,6 +23,7 @@ export default function ProductProduitMobile() {
   const [product, setProduct] = useState(null);
   const [currentImages, setCurrentImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [captchaToken, setCaptchaToken] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
@@ -92,6 +95,7 @@ export default function ProductProduitMobile() {
 
     if (res.ok) {
       setFormData({ name: "", company: "", email: "", phone: "", message: "", produit: product.nom });
+      setCaptchaToken(null);
       setSuccessMessage("Votre message a été envoyé avec succès ! Nous vous répondrons dès que possible.");
       setTimeout(() => setSuccessMessage(""), 5000); // Efface le message après 5 secondes
     } else {
@@ -262,6 +266,12 @@ export default function ProductProduitMobile() {
     className="w-3/4 mx-auto p-2 border rounded bg-white text-gray-700"
   />
 
+{/* reCAPTCHA */}
+<ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_TA_CLE_SITE} // Remplace avec ta clé
+          onChange={setCaptchaToken}
+          className="w-3/4 mx-auto"
+        />
   {/* Bouton */}
   <button
     type="submit"

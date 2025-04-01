@@ -7,6 +7,20 @@ export async function POST(req) {
       if (!name || !email || !phone) {
         return Response.json({ error: "Veuillez remplir les champs obligatoires." }, { status: 400 });
       }
+      
+      const recaptchaRes = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: process.env.RECAPTCHA_SECRET_KEY,
+          response: recaptcha,
+        }),
+      });
+  
+      const recaptchaData = await recaptchaRes.json();
+      if (!recaptchaData.success) {
+        return Response.json({ error: "reCAPTCHA invalide, veuillez réessayer." }, { status: 400 });
+      }
   
       const transporter = nodemailer.createTransport({
         service: "gmail", // Changez ici pour Outlook si vous utilisez Outlook
