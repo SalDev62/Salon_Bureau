@@ -22,7 +22,8 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* Icônes Email et Téléphone */}
-          <div className="flex gap-4 flex-col right-0 mr-4 pt-4 fixed z-40">
+          
+            <div className="flex gap-4 flex-col right-0 mr-4 pt-4 fixed z-40">
             <Link href="mailto:contactsalonbureau@gmail.com">
               <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-800 transition">
                 <Mail className="text-white w-4 h-4" />
@@ -34,6 +35,8 @@ export default function RootLayout({ children }) {
               </div>
             </Link>
           </div>
+        
+          
         </header>
 
         {/* Contenu principal qui prend toute la hauteur disponible */}

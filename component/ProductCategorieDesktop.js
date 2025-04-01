@@ -73,18 +73,29 @@ export default function ProductCategorieDesktop() {
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {products.map((product) => (
-          <Link key={product.id} href={`/${slug}/${categorie}/${product.id}`}>
-            <div className="">
-              <img 
-                src={product.images.length > 0 ? product.images[0] : '/placeholder.png'} 
-                className="w-full h-48 object-cover" 
-                alt={product.nom} 
-              />
-              <h3 className="text-lg font-semibold">{product.nom}</h3>
-              <p className="text-sm text-gray-500">Catégorie : {product.categorieName.join(", ")}</p>
-              <p className="text-sm text-gray-500">Menu : {product.menuName ? product.menuName.join(", ") : "Non spécifié"}</p>
-            </div>
-          </Link>
+          <Link
+                  key={product.id}
+                  href={`/${slug}/${product.categorieId}/${product.id}`}
+                  className="hover:scale-105 transition duration-500 relative"
+                >
+                  <div className="relative w-full h-auto aspect-[367/244]">
+                    {/* Image principale */}
+                    <img
+                      src={product.images}
+                      alt={product.nom}
+                      className="w-full h-full object-cover transition-opacity duration-500 hover:opacity-0"
+                    />
+                    {/* Deuxième image qui apparaît au survol */}
+                    <img
+                      src={product.images2}
+                      alt={`${product.nom} - deuxième image`}
+                      className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 hover:opacity-100"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold">{product.nom}</h3>
+                  <p className="text-sm text-gray-500">Catégorie : {product.categorieName.join(", ")}</p>
+                  <p className="text-sm text-gray-500">Menu : {product.menuName.join(", ")}</p>
+                </Link>
         ))}
       </div>
     </div>

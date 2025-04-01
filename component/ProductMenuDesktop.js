@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import ErrorProduit from "./ErrorProduit";
 import SkeletonLoader from "./SkeletonLoader";
 // Fonction pour récupérer les produits par catégorie
@@ -128,21 +129,37 @@ export default function ProductMenuDesktop() {
 
       {/* Affichage des produits filtrés */}
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-24 gap-x-6 pb-16">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <Link className="hover:scale-105 transition duration-500 relative aspect-w-1 aspect-h-1" key={product.id} href={`/${slug}/${product.categorieId}/${product.id}`}>
-               <div className="">
-                <img src={product.images} className="w-full h-48 object-cover"/>
-                <h3 className="text-lg font-semibold">{product.nom}</h3>
-                <p className="text-sm text-gray-500">Catégorie : {product.categorieName.join(", ")}</p>
-                <p className="text-sm text-gray-500">Menu : {product.menuName.join(", ")}</p>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p>Aucun produit trouvé pour cette catégorie</p>
-        )}
-      </div>
+  {filteredProducts.length > 0 ? (
+    filteredProducts.map((product) => (
+      <Link
+        key={product.id}
+        href={`/${slug}/${product.categorieId}/${product.id}`}
+        className="hover:scale-105 transition duration-500 relative"
+      >
+        <div className="relative w-full h-auto aspect-[367/244]">
+          {/* Image principale */}
+          <img
+            src={product.images}
+            alt={product.nom}
+            className="w-full h-full object-cover transition-opacity duration-500 hover:opacity-0"
+          />
+          {/* Deuxième image qui apparaît au survol */}
+          <img
+            src={product.images2}
+            alt={`${product.nom} - deuxième image`}
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 hover:opacity-100"
+          />
+        </div>
+        <h3 className="text-lg font-semibold">{product.nom}</h3>
+        <p className="text-sm text-gray-500">Catégorie : {product.categorieName.join(", ")}</p>
+        <p className="text-sm text-gray-500">Menu : {product.menuName.join(", ")}</p>
+      </Link>
+    ))
+  ) : (
+    <p>Aucun produit trouvé</p>
+  )}
+</div>
+
     </div>
   );
 }

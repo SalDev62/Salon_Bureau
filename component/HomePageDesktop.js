@@ -41,9 +41,9 @@ export default function HomePageDesktop() {
   const [menus, setMenus] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
-  const [currentIndex2, setCurrentIndex2] = useState(0);
+  const [currentIndex2, setCurrentIndex2] = useState(1);
   const [fade2, setFade2] = useState(true);
-  const [currentIndex3, setCurrentIndex3] = useState(0);
+  const [currentIndex3, setCurrentIndex3] = useState(2);
   const [fade3, setFade3] = useState(true);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function HomePageDesktop() {
     const intervalId1 = setInterval(() => {
       setFade(false);
       setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 3) % images.length);
         setFade(true);
       }, 500);
     }, 12500);
@@ -71,7 +71,7 @@ export default function HomePageDesktop() {
     const intervalId2 = setInterval(() => {
       setFade2(false);
       setTimeout(() => {
-        setCurrentIndex2((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex2((prevIndex) => (prevIndex + 3) % images.length);
         setFade2(true);
       }, 500);
     }, 8500);
@@ -79,7 +79,7 @@ export default function HomePageDesktop() {
     const intervalId3 = setInterval(() => {
       setFade3(false);
       setTimeout(() => {
-        setCurrentIndex3((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex3((prevIndex) => (prevIndex + 3) % images.length);
         setFade3(true);
       }, 500);
     }, 4500);

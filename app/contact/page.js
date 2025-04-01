@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
-    comapgny: "",
+    company: "",
     email: "",
     phone: "",
     message: "",
@@ -14,6 +15,7 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,59 +27,57 @@ export default function ContactForm() {
     setError(null);
     setSuccess(null);
 
-    // Envoi des données au backend
+    if (!captchaToken) {
+      setError("Veuillez valider le reCAPTCHA.");
+      setLoading(false);
+      return;
+    }
+
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ ...formData, captcha: captchaToken }),
     });
 
     const data = await res.json();
     setLoading(false);
 
     if (res.ok) {
-      // Message envoyé avec succès
       setSuccess("Votre message a été envoyé avec succès !");
-      setFormData({ name: "", comapgny: "", email: "", phone: "", message: "" }); // Réinitialise le formulaire
+      setFormData({ name: "", company: "", email: "", phone: "", message: "" });
+      setCaptchaToken(null);
     } else {
-      // En cas d'erreur
       setError(data.error || "Une erreur est survenue. Veuillez réessayer.");
     }
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6  rounded-lg ">
+    <div className="max-w-lg mx-auto p-6 rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Contactez-nous</h2>
-      
-      {/* Affichage du message d'erreur */}
+
       {error && <p className="text-red-500">{error}</p>}
-      
-      {/* Affichage du message de succès */}
       {success && <p className="text-green-500">{success}</p>}
-      
+
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Champ Nom */}
         <input
           type="text"
           name="name"
           placeholder="Nom *"
           required
-          value={formData.nom}
+          value={formData.name}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
-        
-        {/* Champ Société */}
+
         <input
           type="text"
           name="company"
           placeholder="Nom de société (facultatif)"
-          value={formData.societe}
+          value={formData.company}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
-        
-        {/* Champ Email */}
+
         <input
           type="email"
           name="email"
@@ -87,27 +87,31 @@ export default function ContactForm() {
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
-        
-        {/* Champ Téléphone */}
+
         <input
           type="tel"
           name="phone"
           placeholder="Numéro de téléphone"
-          value={formData.telephone}
+          value={formData.phone}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
-        
-        {/* Champ Message */}
+
         <textarea
           name="message"
           placeholder="Votre message"
+          required
           value={formData.message}
           onChange={handleChange}
           className="w-full p-2 border rounded"
         />
-        
-        {/* Bouton d'envoi */}
+
+        {/* reCAPTCHA */}
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_TA_CLE_SITE} // Remplace avec ta clé
+          onChange={setCaptchaToken}
+        />
+
         <button
           type="submit"
           disabled={loading}
