@@ -9,7 +9,7 @@ export async function POST(req) {
     }
 
     // Vérification du reCAPTCHA
-    const recaptchaRes = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+    const recaptchaRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
