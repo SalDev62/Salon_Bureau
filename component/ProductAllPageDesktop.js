@@ -102,7 +102,7 @@ export default function ProduitsPage() {
       layout="position" 
     >
       <Link href={`/${product.menuId}/${product.categorieId}/${product.id}`} className="hover:scale-105 transition duration-500 relative">
-        <div className="relative w-full h-[244px]">
+        <div className="relative w-full h-[244px] hover:scale-105 transition duration-500">
           <img 
             src={product.images} 
             alt={product.nom} 

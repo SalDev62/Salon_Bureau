@@ -115,7 +115,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          className="w-full bg-rose text-white p-2 rounded hover:bg-rouge focus:bg-rouge"
         >
           {loading ? "Envoi en cours..." : "Envoyer"}
         </button>

@@ -17,7 +17,7 @@ async function fetchProductById(productId) {
   return data.find(product => product.id === Number(productId));
 }
 
-export default function ProductProduitMobile() {
+export default function ProductProduitDesktop() {
   const { produit } = useParams(); 
 
   const [product, setProduct] = useState(null);

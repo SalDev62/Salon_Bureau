@@ -183,7 +183,7 @@ export default function HomePageDesktop() {
                       hover:bg-gray-700 transition duration-300 cursor-pointer transform hover:scale-105 text-white`}
             style={{
               backgroundImage: menu.image
-                ? `linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url(${menu.image})`
+                ? `linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%), url(${menu.image})`
                 : 'none',
               backgroundColor: !menu.image ? 'black' : 'transparent',
               backgroundSize: 'cover',
@@ -191,7 +191,7 @@ export default function HomePageDesktop() {
             }}
           >
             {/* Texte en bas de l'image */}
-            <span className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white z-10 font-bold">
+            <span className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white z-10 font-medium text-2xl font-Mont">
               {menu.nom}
             </span>
           </div>
