@@ -2,7 +2,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
     try {
-      const { name, produit, company, email, phone, message } = await req.json();
+      const { name, produit, company, email, phone, message, captcha } = await req.json();
   
       if (!name || !email || !phone) {
         return Response.json({ error: "Veuillez remplir les champs obligatoires." }, { status: 400 });
@@ -13,7 +13,7 @@ export async function POST(req) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
           secret: process.env.RECAPTCHA_SECRET_KEY,
-          response: recaptcha,
+          response: captcha,
         }),
       });
   
