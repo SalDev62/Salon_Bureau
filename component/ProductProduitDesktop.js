@@ -84,11 +84,16 @@ export default function ProductProduitDesktop() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
+    if (!captchaToken) {
+      console.error("reCAPTCHA non validé !");
+      return;
+    }
+
     const res = await fetch("/api/contactproduit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ ...formData, captcha: captchaToken }),
     });
 
     const data = await res.json();
