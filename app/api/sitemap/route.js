@@ -3,9 +3,10 @@
 export async function GET(req) {
     const baseUrl = "https://salon-bureau.fr";
   
-    // Ajoute toutes tes pages ici
+    // Liste des pages de ton site à inclure dans le sitemap
     const pages = ["/", "/produits", "/contact"];
   
+    // Générer le sitemap en XML
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${pages
@@ -13,11 +14,10 @@ export async function GET(req) {
         .join("")}
     </urlset>`;
   
-    // Répondre avec le sitemap
+    // Répondre avec le sitemap en XML
     return new Response(sitemap, {
       headers: {
-        "Content-Type": "text/xml",
+        "Content-Type": "application/xml",  // Utiliser 'application/xml' au lieu de 'text/xml'
       },
     });
-  }
-  
+}
