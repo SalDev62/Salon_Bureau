@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
         
         {/* Favicons pour le site */}
-        <link rel="icon" href="logo.png" />
+        <link rel="icon" href="/logo.png" />
         
         {/* Autres liens pour l'optimisation SEO */}
         <link rel="canonical" href="https://salon-bureau.fr" />
