@@ -6,6 +6,26 @@ import Link from "next/link";
 import { Mail, Phone } from "lucide-react";  // Import des icônes
 import ScrollToTopButton from "../component/ScrollToTopButton"  // Import du composant ScrollToTop
 
+export const metadata = {
+  title: "Salon Bureau - Mobilier de Qualité",
+  description: "Découvrez nos mobiliers pour professionnels.",
+  keywords: ["salon", "bureau", "meubles", "décoration", "moderne","professionnel","mobilier"],
+  openGraph: {
+    title: "Salon Bureau - Mobilier de Qualité",
+    description: "Découvrez nos mobiliers pour professionnels.",
+    images: ["public/logo.png"],
+    type: "website",
+  },
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="fr">
+      <body>{children}</body>
+    </html>
+  );
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
