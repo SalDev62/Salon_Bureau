@@ -13,18 +13,10 @@ export const metadata = {
   openGraph: {
     title: "Salon Bureau - Mobilier de Qualité",
     description: "Découvrez nos mobiliers pour professionnels.",
-    images: ["public/logo.png"],
+    image: ["public/logo.png"],
     type: "website",
   },
 };
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="fr">
-      <body>{children}</body>
-    </html>
-  );
-}
 
 export default function RootLayout({ children }) {
   return (
