@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
 
         {/* Title pour l'optimisation SEO */}
         <title>Salon Bureau - Mobilier de Qualité</title>
-        
+          
         {/* Description pour les moteurs de recherche */}
         <meta name="description" content="Découvrez nos mobiliers." />
         
