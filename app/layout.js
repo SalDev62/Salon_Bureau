@@ -29,13 +29,13 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {/* Title pour l'optimisation SEO */}
-        <title>Salon Bureau - Mobilier de Qualité</title>
+        <title>Salon Bureau</title>
           
         {/* Description pour les moteurs de recherche */}
         <meta name="description" content="Découvrez nos mobiliers." />
         
         {/* Mots-clés pour le SEO */}
-        <meta name="keywords" content="salon, bureau, meubles, décoration, moderne, mobilier, professionnel, saint-omer" />
+        <meta name="keywords" content="salon, bureau, meubles, décoration, moderne, mobilier, professionnel, saint-omer, salon bureau" />
         
         {/* Meta Robots pour indiquer aux moteurs de recherche de suivre et indexer la page */}
         <meta name="robots" content="index, follow" />
