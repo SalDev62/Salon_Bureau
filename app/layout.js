@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         {/* Open Graph pour le partage sur les réseaux sociaux */}
         <meta property="og:title" content="Salon Bureau - Mobilier de Qualité" />
         <meta property="og:description" content="Découvrez nos meubles pour salons et bureaux modernes." />
-        <meta property="og:image" content="/logo.png" />  {/* Assure-toi que l'image est accessible */}
+        <meta property="og:image" content="https://salon-bureau.fr/logo.jpg" />  {/* Assure-toi que l'image est accessible */}
         <meta property="og:type" content="website" />
         
         {/* Favicons pour le site */}
