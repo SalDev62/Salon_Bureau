@@ -5,7 +5,7 @@ import Footer from "@/component/Footer";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";  // Import des icônes
 import ScrollToTopButton from "../component/ScrollToTopButton";  // Import du composant ScrollToTop
-
+import Head from "next/head";
 export const metadata = {
   title: "Salon Bureau - Mobilier de Qualité",
   description: "Découvrez nos mobiliers pour professionnels.",
@@ -13,7 +13,7 @@ export const metadata = {
   openGraph: {
     title: "Salon Bureau - Mobilier de Qualité",
     description: "Découvrez nos mobiliers pour professionnels.",
-    image: ["public/logo.png"], // Peut-être une image plus grande pour OpenGraph (suggestion)
+    image: ["/logo.png"], // Peut-être une image plus grande pour OpenGraph (suggestion)
     type: "website",
   },
 };
@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <head>
+      <Head>
         {/* Meta charset pour la compatibilité avec tous les navigateurs */}
         <meta charSet="UTF-8" />
         
@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         {/* Open Graph pour le partage sur les réseaux sociaux */}
         <meta property="og:title" content="Salon Bureau - Mobilier de Qualité" />
         <meta property="og:description" content="Découvrez nos meubles pour salons et bureaux modernes." />
-        <meta property="og:image" content="public/logo.png" />  {/* Assure-toi que l'image est accessible */}
+        <meta property="og:image" content="/logo.png" />  {/* Assure-toi que l'image est accessible */}
         <meta property="og:type" content="website" />
         
         {/* Favicons pour le site */}
@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
         
         {/* Autres liens pour l'optimisation SEO */}
         <link rel="canonical" href="https://salon-bureau.fr" />
-      </head>
+      </Head>
       <body className="min-h-screen flex flex-col">
         <header>
           {/* NavBarMobile pour les petits écrans */}

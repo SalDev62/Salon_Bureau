@@ -2,5 +2,5 @@ User-agent: *
 Disallow: /admin
 Disallow: /private
 Disallow: /api/
-Sitemap: https://salon-bureau.fr/api/sitemap
+Sitemap: https://salon-bureau.fr/sitemap.xml
 Allow: /
