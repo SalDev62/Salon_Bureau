@@ -7,13 +7,13 @@ import { Mail, Phone } from "lucide-react";  // Import des icônes
 import ScrollToTopButton from "../component/ScrollToTopButton";  // Import du composant ScrollToTop
 import Head from "next/head";
 export const metadata = {
-  title: "Salon Bureau - Mobilier de Qualité",
+  title: "Salon Bureau",
   description: "Découvrez nos mobiliers pour professionnels.",
   keywords: ["salon", "bureau", "meubles", "décoration", "moderne", "professionnel", "mobilier"],
   openGraph: {
-    title: "Salon Bureau - Mobilier de Qualité",
+    title: "Salon Bureau",
     description: "Découvrez nos mobiliers pour professionnels.",
-    image: ["/logo.png"], // Peut-être une image plus grande pour OpenGraph (suggestion)
+    image: ["/logo.jpg"], // Peut-être une image plus grande pour OpenGraph (suggestion)
     type: "website",
   },
 };
@@ -41,8 +41,8 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="index, follow" />
         
         {/* Open Graph pour le partage sur les réseaux sociaux */}
-        <meta property="og:title" content="Salon Bureau - Mobilier de Qualité" />
-        <meta property="og:description" content="Découvrez nos meubles pour salons et bureaux modernes." />
+        <meta property="og:title" content="Salon Bureau" />
+        <meta property="og:description" content="Découvrez nos mobiliers pour professionnels." />
         <meta property="og:image" content="/logo.jpg" />  {/* Assure-toi que l'image est accessible */}
         <meta property="og:type" content="website" />
         
