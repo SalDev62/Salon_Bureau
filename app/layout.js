@@ -7,13 +7,13 @@ import { Mail, Phone } from "lucide-react";  // Import des icônes
 import ScrollToTopButton from "../component/ScrollToTopButton";  // Import du composant ScrollToTop
 import Head from "next/head";
 export const metadata = {
-  title: "Salon Bureau",
-  description: "Découvrez nos mobiliers pour professionnels.",
+  title: "Salon Bureau - Mobilier pour professionnel",
+  description: "Découvrez notre sélection de mobilier design et ergonomique pour les professionnels : bureaux, chaises, rangements, et plus encore.",
   keywords: ["salon", "bureau", "meubles", "décoration", "moderne", "professionnel", "mobilier"],
   openGraph: {
-    title: "Salon Bureau",
-    description: "Découvrez nos mobiliers pour professionnels.",
-    image: ["/logo.jpg"], // Peut-être une image plus grande pour OpenGraph (suggestion)
+    title: "Salon Bureau - Mobilier pour professionnel",
+    description: "Découvrez notre sélection de mobilier design et ergonomique pour les professionnels : bureaux, chaises, rangements, et plus encore.",
+    image: ["logo.jpg"], // Peut-être une image plus grande pour OpenGraph (suggestion)
     type: "website",
   },
 };
@@ -29,10 +29,8 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {/* Title pour l'optimisation SEO */}
-        <title>Salon Bureau</title>
-          
-        {/* Description pour les moteurs de recherche */}
-        <meta name="description" content="Découvrez nos mobiliers." />
+        <title>Salon Bureau - Mobilier pour professionnel</title>
+        <meta name="description" content="Découvrez notre sélection de mobilier design et ergonomique pour les professionnels : bureaux, chaises, rangements, et plus encore." />
         
         {/* Mots-clés pour le SEO */}
         <meta name="keywords" content="salon, bureau, meubles, décoration, moderne, mobilier, professionnel, saint-omer, salon bureau" />
@@ -43,7 +41,7 @@ export default function RootLayout({ children }) {
         {/* Open Graph pour le partage sur les réseaux sociaux */}
         <meta property="og:title" content="Salon Bureau" />
         <meta property="og:description" content="Découvrez nos mobiliers pour professionnels." />
-        <meta property="og:image" content="/logo.jpg" />  {/* Assure-toi que l'image est accessible */}
+        <meta property="og:image" content="logo.jpg" />  {/* Assure-toi que l'image est accessible */}
         <meta property="og:type" content="website" />
         
         {/* Favicons pour le site */}
