@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Head from "next/head";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
@@ -52,6 +53,13 @@ export default function ContactForm() {
   };
 
   return (
+    <div>
+       <Head>
+        <title>Contactez Salon Bureau - Mobilier professionnel à Saint-Omer</title>
+        <meta name="description" content="Prenez contact avec Salon Bureau, spécialiste du mobilier professionnel à Saint-Omer. Conseils, devis et accompagnement." />
+        <link rel="canonical" href="https://salon-bureau.fr/contact" />
+      </Head>
+    
     <div className="max-w-lg mx-auto p-6 rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Contactez-nous</h2>
 
@@ -120,6 +128,7 @@ export default function ContactForm() {
           {loading ? "Envoi en cours..." : "Envoyer"}
         </button>
       </form>
+      </div>
     </div>
   );
 }
