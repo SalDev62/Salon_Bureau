@@ -3,61 +3,20 @@ import NavBarDesktop from "../component/NavBarDesktop";
 import NavBarMobile from "../component/NavBarMobile";
 import Footer from "@/component/Footer";
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";  // Import des icônes
-import ScrollToTopButton from "../component/ScrollToTopButton";  // Import du composant ScrollToTop
-import Head from "next/head";
-export const metadata = {
-  title: "Salon Bureau - Mobilier pour professionnel",
-  description: "Découvrez notre sélection de mobilier design et ergonomique pour les professionnels : bureaux, chaises, rangements, et plus encore.",
-  keywords: ["salon", "bureau", "meubles", "décoration", "moderne", "professionnel", "mobilier"],
-  openGraph: {
-    title: "Salon Bureau - Mobilier pour professionnel",
-    description: "Découvrez notre sélection de mobilier design et ergonomique pour les professionnels : bureaux, chaises, rangements, et plus encore.",
-    image: ["logo.jpg"], // Peut-être une image plus grande pour OpenGraph (suggestion)
-    type: "website",
-  },
-};
+import { Mail, Phone } from "lucide-react";
+import ScrollToTopButton from "../component/ScrollToTopButton";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <Head>
-        {/* Meta charset pour la compatibilité avec tous les navigateurs */}
-        <meta charSet="UTF-8" />
-        
-        {/* Viewport pour la compatibilité mobile */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        {/* Title pour l'optimisation SEO */}
-        <title>Salon Bureau - Mobilier pour professionnel</title>
-        <meta name="description" content="Découvrez notre sélection de mobilier design et ergonomique pour les professionnels : bureaux, chaises, rangements, et plus encore." />
-        
-        {/* Mots-clés pour le SEO */}
-        <meta name="keywords" content="salon, bureau, meubles, décoration, moderne, mobilier, professionnel, saint-omer, salon bureau" />
-        
-        {/* Meta Robots pour indiquer aux moteurs de recherche de suivre et indexer la page */}
-        <meta name="robots" content="index, follow" />
-        
-        {/* Open Graph pour le partage sur les réseaux sociaux */}
-        <meta property="og:title" content="Salon Bureau" />
-        <meta property="og:description" content="Découvrez nos mobiliers pour professionnels." />
-        <meta property="og:image" content="logo.jpg" />  {/* Assure-toi que l'image est accessible */}
-        <meta property="og:type" content="website" />
-        
-        {/* Favicons pour le site */}
-        <link rel="icon" href="/logo.jpg" />
-        
-        {/* Autres liens pour l'optimisation SEO */}
-        <link rel="canonical" href="https://salon-bureau.fr" />
-      </Head>
       <body className="min-h-screen flex flex-col">
         <header>
-          {/* NavBarMobile pour les petits écrans */}
+          {/* NavBarMobile pour petits écrans */}
           <div className="lg:hidden">
             <NavBarMobile />
           </div>
 
-          {/* NavBarDesktop pour les grands écrans */}
+          {/* NavBarDesktop pour grands écrans */}
           <div className="hidden lg:block">
             <NavBarDesktop />
           </div>
@@ -77,15 +36,12 @@ export default function RootLayout({ children }) {
           </div>
         </header>
 
-        {/* Contenu principal */}
         <main className="flex-1">{children}</main>
 
-        {/* Footer */}
         <footer className="mt-auto">
           <Footer />
         </footer>
 
-        {/* ScrollToTopButton */}
         <ScrollToTopButton />
       </body>
     </html>
