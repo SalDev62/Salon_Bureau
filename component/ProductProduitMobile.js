@@ -136,64 +136,38 @@ export default function ProductProduitDesktop() {
         <h3 className='text-4xl'>{product.nom}</h3>
         <p className='text-sm font-light '>{product.categorieName.join(', ')}</p>
       </div>
-      {product.images.length > 0 ? (
-        <div>{product.images2.map((image, index) => (
-          <img key={index} src={image} alt={product.nom} className="w-full h-auto" />
-        ))}</div>
-      ) : <p>Aucune image disponible</p>}
-
-      
-<div className="w-full md:w-1/2 p-4 text-md bg-gray-100">
-  <div className='flex flex-row justify-center items-center w-full h-full'>
-    <p className=''>{product.description || 'Pas de description disponible'}</p>
+      <div className="w-full flex flex-col gap-2">
+  {/* Image 2 (en premier sur mobile) */}
+  <div className="block md:hidden w-full">
+    {product.images2[0] && (
+      <img src={product.images2[0]} alt={`${product.nom} image 2`} className="w-full h-auto" />
+    )}
   </div>
-    
+
+  {/* Image 1 (en second sur mobile) */}
+  <div className="block md:hidden w-full">
+    {product.images[0] && (
+      <img src={product.images[0]} alt={`${product.nom} image 1`} className="w-full h-auto" />
+    )}
   </div>
-     
-<div className="flex flex-col md:flex-row justify-between">
- {/* Bloc image */}
-<div className="w-full md:w-1/2 relative">
-  {/* Carrousel */}
-  {currentImages.length > 0 ? (
-    <div className="relative">
-      <img src={currentImages[currentIndex]} alt={product.nom} className="w-full h-96 object-cover" />
 
-      {/* Bouton de changement d'image */}
-      <button 
-        onClick={handleImageSwitch} 
-        className="absolute bottom-2 left-2 bg-rose text-white p-2 rounded-full shadow-lg flex items-center justify-center"
-      >
-        <RotateCw size={24} className="transition-transform duration-300 hover:rotate-180 cursor-pointer hover:opacity-40" />
-      </button>
+  {/* Image 3 (troisième sur mobile) */}
+  <div className="block md:hidden w-full">
+    {product.images3[0] && (
+      <img src={product.images3[0]} alt={`${product.nom} image 3`} className="w-full h-auto" />
+    )}
+  </div>
 
-      {/* Indicateurs sous l'image */}
-          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {[product.images, product.images3].map((imgSet, idx) => (
-              <span
-                key={idx}
-                onClick={() => {
-                  setCurrentImages(imgSet);
-                  setCurrentIndex(0);
-                }}
-                className={`h-1 w-1 rounded-full cursor-pointer transition-all duration-300 ${
-                  imgSet === currentImages ? "bg-rose-500 w-3" : "bg-rose"
-                }`}
-              />
-            ))}
-          </div>
+  {/* Description (quatrième sur mobile) */}
+  <div className="block md:hidden w-full bg-white text-black text-sm">
+    <p className="m-4">{product.description || null}</p>
+  </div>
+</div>
 
-              </div>
-            ) : (
-              <div className="w-full h-96 bg-gray-200 flex items-center justify-center">
-                <span>Image indisponible</span>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+  </div>
       <div className=''>
         <div>
-          <p className='text-center text-3xl mb-4 pt-16 pb-16'><strong className='font-medium bg-rose text-white p-2 rounded-lg'>Nous contacter</strong> pour ce <strong className='font-medium text-rose'>produit </strong>?</p>
+          <p className='text-center text-2xl mb-4 pt-16 pb-16'><strong className='font-medium bg-rose text-white p-2 rounded-lg'>Nous contacter</strong> pour ce <strong className='font-medium text-rose'>produit </strong></p>
         </div>
         <div className='w-full '>       
           <form onSubmit={handleSubmit} className="space-y-6 bg-gray-100 pt-8 pb-16 text-center">
