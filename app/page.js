@@ -9,14 +9,14 @@ export const metadata = {
   openGraph: {
     title: "Salon Bureau - Mobilier pour professionnel",
     description: "Découvrez nos mobiliers pour professionnels.",
-    image: "/logo.jpg", // Assure-toi que l'image existe et est accessible
+    image: "/favicon.ico", // Assure-toi que l'image existe et est accessible
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Salon Bureau - Mobilier pour professionnel",
     description: "Découvrez notre sélection de mobilier design et ergonomique pour les professionnels.",
-    image: "/logo.jpg", // Vérifie l'accessibilité de l'image
+    image: "/favicon.ico", // Vérifie l'accessibilité de l'image
   },
 };
 

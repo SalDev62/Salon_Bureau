@@ -5,10 +5,13 @@ import Footer from "@/component/Footer";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import ScrollToTopButton from "../component/ScrollToTopButton";
-
+import Head from "next/head";
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
       <body className="min-h-screen flex flex-col">
         <header>
           {/* NavBarMobile pour petits écrans */}
