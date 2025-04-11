@@ -6,8 +6,6 @@ import { Suspense } from "react";
 // 🔁 Cette fonction est appelée automatiquement côté serveur
 export async function generateMetadata({ params }) {
   const { slug } = params;
-
-  // Exemple simple (tu peux remplacer ça par un fetch vers ton API Baserow si besoin)
   const formattedSlug = slug.replace(/-/g, " ");
 
   return {
@@ -24,15 +22,20 @@ export async function generateMetadata({ params }) {
       type: "website",
       images: [
         {
-          url: "/logo.jpg", // ton logo ou une image de la catégorie
+          url: "/logo.jpg",
           width: 800,
           height: 600,
           alt: "Salon Bureau",
         },
       ],
     },
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
+
 
 // Le composant de la page
 export default function Page({ params }) {
