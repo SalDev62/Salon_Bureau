@@ -1,6 +1,3 @@
 User-agent: *
+Allow: /
 Sitemap: https://salon-bureau.fr/sitemap.xml
-Disallow: /
-Allow: /$
-
-
