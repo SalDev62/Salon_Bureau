@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <div className='bg-blackL h-32 p-4 flex flex-row justify-center items-center'>
+    <div className='bg-rose h-32 p-4 flex flex-row justify-center items-center'>
         <ul className='flex flex-row text-white'>
             <li className='mr-4'>
                 <Link href="/contact">
