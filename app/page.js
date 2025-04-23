@@ -1,18 +1,16 @@
 import HomeClient from "@/component/HomeClinet";
 export const metadata = {
-  title: "Salon Bureau - Mobilier pour professionnel",
+  title: "Vente de mobilier pour professionnel à Saint-Omer | Salon Bureau",
   description:
-    "Découvrez notre sélection de mobilier design et ergonomique pour les professionnels : bureaux, chaises, rangements, et plus encore.",
+    "Découvrez nos mobiliers professionnels à Saint-Omer. Mobilier design, ergonomique et de qualité pour les professionnels. Livraison rapide.",
   keywords: [
-    "salon",
-    "Salon Bureau",
-    "Salon",
-    "Bureau",
-    "bureau",
-    "meubles",
-    "mobilier",
-    "professionnel",
-    "saint-omer",
+    "bureau Saint-Omer",
+    "mobilier Saint-Omer",
+    "mobilier professionnel",
+    "bureau professionnel",
+    "Saint-Omer",
+    "meuble entreprise",
+    "bureau design",
   ],
   metadataBase: new URL("https://salon-bureau.fr"),
   alternates: {
@@ -23,28 +21,29 @@ export const metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Salon Bureau - Mobilier pour professionnel",
+    title: "Vente de mobilier pour professionnel à Saint-Omer | Salon Bureau",
     description:
-      "Découvrez notre sélection de mobilier design et ergonomique pour les professionnels.",
+      "Mobilier professionnel à Saint-Omer : bureaux, chaises, rangements et bien d'autres. Pour entreprise, professions libérales, coworking...",
     url: "https://salon-bureau.fr/",
     type: "website",
     images: [
       {
-        url: "/logo.jpg", // ✅ Change ça si tu veux une autre image
+        url: "/logo.jpg",
         width: 800,
         height: 600,
-        alt: "Salon Bureau",
+        alt: "Mobilier Saint-Omer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Salon Bureau - Mobilier pour professionnel",
+    title: "Vente de mobilier pour professionnel à Saint-Omer | Salon Bureau",
     description:
-      "Découvrez notre sélection de mobilier design et ergonomique pour les professionnels.",
-    images: ["/logo.jpg"], // ✅ Idem ici si besoin
+      "Bureaux et mobilier professionnel disponibles à Saint-Omer. Livraison rapide, design et qualité.",
+    images: ["/logo.jpg"],
   },
 };
+
 
 export default function Home() {
   return <HomeClient />;
