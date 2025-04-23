@@ -11,6 +11,18 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Salon Bureau",
+              "url": "https://salon-bureau.fr",
+              "logo": "https://salon-bureau.fr/logo.jpg"
+            }),
+          }}
+        />
       </Head>
       <body className="min-h-screen flex flex-col">
         <header>
