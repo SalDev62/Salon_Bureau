@@ -162,7 +162,9 @@ export default function HomePageDesktop() {
       </div>
 
       {/* Section Nos Catégories Phares */}
-<div className="bg-rose w-full py-20">
+      <div className="bg-gradient-to-t from-white via-rose to-black w-full py-20">
+  {/* ton contenu ici */}
+
   <div className="w-full max-w-[1350px] mx-auto h-auto flex flex-col gap-y-12 px-6">
     <div className="text-center">
       <h2 className="text-5xl font-bold">
