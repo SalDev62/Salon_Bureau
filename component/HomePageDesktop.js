@@ -181,7 +181,7 @@ export default function HomePageDesktop() {
       {menus.map((menu, index) => (
         <Link key={index} href={`/${menu.id}`} passHref>
           <div
-            className={`relative p-6 text-center text-lg font-semibold rounded-xl shadow-md h-48 
+            className={`relative p-6 text-center text-lg font-semibold rounded-xl shadow-md h-96 
                       hover:bg-gray-700 transition duration-300 cursor-pointer transform hover:scale-105 text-white`}
             style={{
               backgroundImage: menu.image
