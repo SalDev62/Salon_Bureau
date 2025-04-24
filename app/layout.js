@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <Head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="https://salon-bureau.fr/logo.jpg" sizes="any" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
