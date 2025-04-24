@@ -6,7 +6,9 @@ export default function Footer() {
     <div className='bg-rose h-32 p-4 flex flex-row justify-center items-center'>
         <ul className='flex flex-row text-white'>
             <li className='mr-4'>
-                <Link href="/contact">
+                <Link className=" text-white px-6 py-3 rounded-lg shadow-lg 
+                  hover:text-rouge hover:scale-105 hover:shadow-2xl 
+                  transition-all duration-300 ease-in-out cursor-pointer" href="/contact">
                     Contact
                 </Link>
             </li>
