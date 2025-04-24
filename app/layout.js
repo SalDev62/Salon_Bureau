@@ -5,25 +5,33 @@ import Footer from "@/component/Footer";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import ScrollToTopButton from "../component/ScrollToTopButton";
-import Head from "next/head";
+import JsonLd from "../component/JsonLd"; // 👈 Composant JSON-LD
+
+export const metadata = {
+  title: "Salon Bureau",
+  description: "Découvrez nos mobiliers pour professionnels.",
+  icons: {
+    icon: "/favicon.ico", // Mets un vrai favicon.ico dans /public
+  },
+  openGraph: {
+    title: "Salon Bureau",
+    url: "https://salon-bureau.fr",
+    siteName: "Salon Bureau",
+    images: [
+      {
+        url: "https://salon-bureau.fr/logo.jpg",
+        width: 800,
+        height: 600,
+        alt: "Salon Bureau",
+      },
+    ],
+    type: "website",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <Head>
-        <link rel="icon" href="https://salon-bureau.fr/logo.jpg" sizes="any" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Salon Bureau",
-              "url": "https://salon-bureau.fr",
-              "logo": "https://salon-bureau.fr/logo.jpg"
-            }),
-          }}
-        />
-      </Head>
       <body className="min-h-screen flex flex-col">
         <header>
           {/* NavBarMobile pour petits écrans */}
@@ -58,6 +66,8 @@ export default function RootLayout({ children }) {
         </footer>
 
         <ScrollToTopButton />
+
+        <JsonLd /> {/* 👈 Script SEO ajouté en bas du body */}
       </body>
     </html>
   );
