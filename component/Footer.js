@@ -7,18 +7,22 @@ export default function Footer() {
         <ul className='flex flex-row text-white'>
             <li className='mr-4'>
                 <Link className=" text-white px-6 py-3 
-                  hover:text-rouge hover:scale-105 hover:shadow-2xl 
+                  hover:text-rouge hover:scale-105
                   transition-all duration-300 ease-in-out cursor-pointer" href="/contact">
                     Contact
                 </Link>
             </li>
             <li className='mr-4'>
-                <Link href="/mention-legal">
+                <Link className=" text-white px-6 py-3 
+                  hover:text-rouge hover:scale-105
+                  transition-all duration-300 ease-in-out cursor-pointer" href="/mention-legal">
                     Mentions légales
                 </Link>
             </li>
             <li className=''>
-                <Link href="/a-propos">
+                <Link className=" text-white px-6 py-3 
+                  hover:text-rouge hover:scale-105
+                  transition-all duration-300 ease-in-out cursor-pointer" href="/a-propos">
                     A propos
                 </Link>
             </li>
