@@ -108,7 +108,7 @@ export default function HomePageDesktop() {
               <p className="bg-rose text-white px-6 py-3 rounded-lg shadow-lg 
                   hover:bg-rouge hover:scale-105 hover:shadow-2xl 
                   transition-all duration-300 ease-in-out cursor-pointer">
-                Nos produits
+                Tous nos produits
               </p>
             </Link>
             <Link href="/contact">
