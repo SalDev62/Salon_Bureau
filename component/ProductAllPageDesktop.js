@@ -115,8 +115,8 @@ export default function ProduitsPage() {
           />
         </div>
         <h3 className="text-lg font-semibold">{product.nom}</h3>
-        <p className="text-sm text-gray-500">Catégorie : {product.categorieName.join(", ")}</p>
-        <p className="text-sm text-gray-500">Menu : {product.menuName.join(", ")}</p>
+        <p className="text-sm text-gray-500">{product.categorieName.join(", ")}</p>
+        <p className="text-sm text-gray-500">{product.menuName.join(", ")}</p>
       </Link>
     </motion.div>
   ))}
