@@ -1,7 +1,6 @@
-import ProductMenuDesktop from "@/component/ProductMenuDesktop";
-import ProductMenuMobile from "@/component/ProductMenuMobile";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import ProductMenuDesktop from "@/component/ProductMenuDesktop";
 
 // 🔁 Cette fonction est appelée automatiquement côté serveur
 export async function generateMetadata({ params }) {
@@ -36,14 +35,12 @@ export async function generateMetadata({ params }) {
   };
 }
 
-
-// Le composant de la page
-export default function Page({ params }) {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+export default async function Page({ params }) {
+  const { slug } = params;
 
   return (
-    <>
-      {isMobile ? <ProductMenuMobile /> : <ProductMenuDesktop />}
-    </>
+    <Suspense fallback={<p>Chargement...</p>}>
+      <ProductMenuDesktop slug={slug} />
+    </Suspense>
   );
 }
