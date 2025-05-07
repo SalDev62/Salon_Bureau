@@ -11,14 +11,22 @@ async function fetchProductsByCategory(categoryId) {
   if (!response.ok) {
     throw new Error('Erreur lors de la récupération des produits');
   }
+
   const data = await response.json();
 
+  // On attend que `data` soit un objet avec une clé `produits`
+  const produits = data.produits;
+
+  if (!Array.isArray(produits)) {
+    throw new Error("Le champ 'produits' est manquant ou n'est pas un tableau.");
+  }
+
   // Filtrer les produits par catégorie
-  const products = data.filter(product =>
-    product.categorieId.includes(Number(categoryId)) // Vérifie si le produit appartient à la catégorie
+  const filtered = produits.filter(product =>
+    product.categorieId?.includes(Number(categoryId))
   );
-  
-  return products;
+
+  return filtered;
 }
 
 export default function ProductCategorieDesktop() {

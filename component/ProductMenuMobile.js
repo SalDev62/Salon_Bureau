@@ -14,7 +14,12 @@ async function fetchProductsByCategory(slug) {
     const response = await fetch(apiUrl, { cache: "no-store" });
     if (!response.ok) throw new Error("Erreur lors de la récupération des produits");
 
-    const fetchedProducts = await response.json();
+    const fetchedData = await response.json(); // On récupère la réponse complète, qui est un objet
+
+    // Vérifie que fetchedData contient la clé 'produits' et si oui, récupère-la
+    const fetchedProducts = fetchedData.produits || [];  // Utilisation de 'produits' dans l'objet
+
+    // Filtrer les produits en fonction de menuId (qui est un tableau dans la réponse)
     return fetchedProducts.filter((product) => product.menuId.includes(parseInt(slug)));
   } catch (error) {
     console.error(error);
