@@ -14,8 +14,13 @@ async function fetchProductById(productId) {
     throw new Error('Erreur lors de la récupération du produit');
   }
   const data = await response.json();
-  return data.find(product => product.id === Number(productId));
+
+  // Si `data` est un objet contenant une clé `products` (ou autre)
+  const products = data.produits || []; // Remplacer `products` par le nom de la clé correcte
+
+  return products.find(product => product.id === Number(productId));
 }
+
 
 export default function ProductProduitDesktop() {
   const { produit } = useParams(); 
