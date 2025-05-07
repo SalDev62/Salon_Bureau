@@ -85,7 +85,7 @@ export default function ProduitsPage() {
       <div className='w-full h-0.5 bg-rose mb-8'></div>
 
       {/* Filtres */}
-      <div className="flex gap-4 mb-8">
+      <div className="flex flex-col gap-4 mb-8">
         <select
           value={selectedMenu}
           onChange={(e) => setSelectedMenu(e.target.value)}
@@ -112,17 +112,17 @@ export default function ProduitsPage() {
       </div>
 
       {/* Affichage des produits sans animation */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProduits.map((product) => (
           <div
             key={`${product.id}-${selectedCategorie}`}
           >
-            <Link href={`/${product.menuId}/${product.categorieId}/${product.id}`} className="hover:scale-105 transition duration-500 relative block">
-              <div className="relative w-full h-[244px] hover:scale-105 transition duration-500">
+            <Link  className="hover:scale-105 transition duration-500 relative" href={`/${product.menuId}/${product.categorieId}/${product.id}`}>
+              <div className="relative w-full h-auto aspect-[367/244]">
                 <img
                   src={product.images}
                   alt={product.nom}
-                  className="absolute w-full h-full object-cover transition-opacity duration-500 hover:opacity-0"
+                  className="w-full h-full object-cover transition-opacity duration-500 hover:opacity-0"
                 />
                 <img
                   src={product.images2}
