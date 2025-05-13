@@ -115,6 +115,10 @@ export default function ProductProduitDesktop() {
 
   return (
     <div>
+      <div className='flex flex-col justify-center items-center bg-rose text-white p-4'>
+        <p className='text-xl text-center'>Nos meubles sont disponibles dans de nombreuses finitions (bois, métal, couleurs, textures) pour s’adapter à votre style et vos besoins professionnels.</p>
+        <p className='text-xl text-center'>Contactez-nous pour plus d'informations.</p>
+      </div>
     <div className='max-w-[1350] mx-auto'>
         <div className="p-2 text-gray-600 text-sm">
   {/* Lien vers le menu */}
