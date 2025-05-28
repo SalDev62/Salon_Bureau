@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `Mobilier ${formattedSlug} professionnel | Salon Bureau`,
     description: `Découvrez notre sélection de mobilier ${formattedSlug} ergonomique pour professionnels à Saint-Omer.`,
-    keywords: ["mobilier", "bureau", "professionnel", formattedSlug, "saint-omer", "ergonomique"],
+    keywords: ["mobilier", "bureau", "professionnel", formattedSlug, "saint-omer", "ergonomique", "Haut de France", "Nord", "Pas De Calais"],
     alternates: {
       canonical: `https://salon-bureau.fr/${slug}`,
     },
