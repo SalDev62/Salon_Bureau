@@ -11,6 +11,9 @@ export const metadata = {
     "Saint-Omer",
     "meuble entreprise",
     "bureau design",
+     "Haut de france",
+    "Pas De Calais",
+    "Nord",
   ],
   metadataBase: new URL("https://salon-bureau.fr"),
   alternates: {
